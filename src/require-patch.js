@@ -22,7 +22,7 @@ nodule._extensions[".es6"] = function(mod, filename) {
 
 nodule._extensions[".js"] = function(mod, filename) {
     if (/\/node_modules\//.test(filename)) {
-        return unpatched.js.apply(this, arguments);
+        return unpatched.js(mod, filename);
     } else {
         var compile = nodule._extensions[".es6"];
         return compile(mod, filename);
