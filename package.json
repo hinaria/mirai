@@ -2,7 +2,8 @@
     "name": "es6inode",
     "author": "astralfoxy",
     "description": "ES6 pseudo-polyfill for node",
-    "version": "0.0.1",
+    "keywords": ["codegen", "compiler", "ecmascript", "ES.next", "es6", "harmony", "javascript", "traceur", "transpiler"],
+    "version": "0.0.2",
     "license": "MIT",
 
     
@@ -13,7 +14,7 @@
 
 
     "dependencies": {
-        "traceur": "astralfoxy/traceur-compiler"
+        "traceur": "0.0.33"
     },
 
     
