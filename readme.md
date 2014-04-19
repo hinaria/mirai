@@ -1,11 +1,22 @@
 # es6inode
 
-ES6 pseudo-polyfill for node. Your ES6 code is transpiled through [Google Traceur](https://github.com/google/traceur-compiler) which contains many bugs, but for the most part it's usable.
+ES6 for node. Your ES6 code is transpiled through [Google Traceur](https://github.com/google/traceur-compiler).
 
 ## Usage
 
-Write ES6 code and save it with an .es6 extension instead of .js. Then, require `es6inode` somewhere, which will alter the module loading system to also look for .es6 modules.
+```shell
+npm install es6inode
+```
+
+Require `es6inode` somewhere and then save your ES6 modules with a `.js` or `.es6` extension. `es6inode` alters the module loading system to transpile all `.js` and `.es6` files.
 
 ```javascript
 require("es6inode");
+```
+
+By default, both `.js` and `.es6` files are transpiled. If you only want to transpile `.es6` files, you can restore the original (unpatched) javascript processor.
+
+```javascript
+var es6 = require("es6inode");
+es6.restore();
 ```
