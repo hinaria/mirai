@@ -1,26 +1,20 @@
 {
-    "name": "es6inode",
-    "author": "astralfoxy",
-    "description": "ES6 pseudo-polyfill for node",
-    "version": "0.0.1",
-    "license": "MIT",
-
-    
-    "main": "./src/es6inode.js",
-    "engines": {
-        "node": ">=0.10"
-    },
-
-
-    "dependencies": {
-        "traceur": "astralfoxy/traceur-compiler"
-    },
-
-    
-    "homepage": "https://github.com/astralfoxy/es6inode",
-    "bugs": "https://github.com/astralfoxy/es6inode/issues",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/astralfoxy/es6inode"
-    }
+  "name": "es6inode",
+  "author": "astralfoxy",
+  "description": "ES6 pseudo-polyfill for node",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "./src/es6inode.js",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "homepage": "https://github.com/astralfoxy/es6inode",
+  "bugs": "https://github.com/astralfoxy/es6inode/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/astralfoxy/es6inode"
+  },
+  "dependencies": {
+    "traceur": "0.0.33"
+  }
 }

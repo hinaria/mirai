@@ -23,7 +23,7 @@ module.exports = function compile(content, filename, options) {
 
     var reporter = new traceur.util.TestErrorReporter();
     var sourceFile = new traceur.syntax.SourceFile(filename, content);
-    var parser = new traceur.syntax.Parser(reporter, sourceFile);
+    var parser = new traceur.syntax.Parser(sourceFile, reporter);
     var tree = parser.parseScript();
     var transformer = new traceur.codegeneration.FromOptionsTransformer(reporter);
     var transformedTree = transformer.transform(tree);
@@ -32,5 +32,5 @@ module.exports = function compile(content, filename, options) {
         var errors = reporter.errors.map(function(error) { return "    " + error; }).join("\n");
         throw "traceur compilation failed: \n" + errors;
     }
-    return traceur.outputgeneration.TreeWriter.write(transformedTree, null);
+    return traceur.outputgeneration.TreeWriter.write(transformedTree, {});
 };
