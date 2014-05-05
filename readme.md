@@ -20,3 +20,26 @@ By default, both `.js` and `.es6` files are transpiled. If you only want to tran
 var es6 = require("es6inode");
 es6.restore();
 ```
+
+## Example
+
+The following example uses the [String Interpolation](http://tc39wiki.calculist.org/es6/template-strings/) feature from ES6.
+
+File: hello.js
+
+```javascript
+module.exports = function(name){
+  return `My name is ${name}`;
+};
+```
+
+File: run.js
+
+```javascript
+require('es6inode');
+
+var Hello = require('./hello')
+console.log(Hello('Joe'));
+```
+
+Running `$ node run.js` should print *My name is Joe*.
