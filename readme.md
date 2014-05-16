@@ -1,45 +1,78 @@
-# es6inode
+# mirai
 
-ES6 for node. Your ES6 code is transpiled through [Google Traceur](https://github.com/google/traceur-compiler).
+run the future of javascript today. write and use ES6 and ES7 code within node.
 
-## Usage
+`mirai` was previously called `es6inode`.
+
+## getting started
 
 ```shell
-npm install es6inode
+npm install mirai
+
+...
+
+require("mirai");
 ```
 
-Require `es6inode` somewhere and then save your ES6 modules with a `.js` or `.es6` extension. `es6inode` alters the module loading system to transpile all `.js` and `.es6` files.
+activating `mirai` is as simple as requiring the module. `mirai` will then alter the module loading system to transpile new `.js` and `.es6` files.
+
+## example
 
 ```javascript
-require("es6inode");
+/* program.js */
+
+require("mirai");
+
+var announce = require("./announce");
+announce("mirai is a success!");
 ```
 
-By default, both `.js` and `.es6` files are transpiled. If you only want to transpile `.es6` files, you can restore the original (unpatched) javascript processor.
-
 ```javascript
-var es6 = require("es6inode");
-es6.restore();
-```
+/* announce.es6 */
 
-## Example
-
-The following example uses the [String Interpolation](http://tc39wiki.calculist.org/es6/template-strings/) feature from ES6.
-
-File: hello.js
-
-```javascript
-module.exports = function(name){
-  return `My name is ${name}`;
+export default function announce(text, author = "system") {
+    let message = `[announcement] ${text} -- ${author}`;
+    console.log(message);
 };
 ```
 
-File: run.js
-
-```javascript
-require('es6inode');
-
-var Hello = require('./hello')
-console.log(Hello('Joe'));
+```shell
+node program.js
+=> [announcement] mirai is a success! -- system
 ```
 
-Running `$ node run.js` should print *My name is Joe*.
+## configuration
+
+simply requiring `mirai` will activate it with the default parameters found in `options.js`. however, you can manually activate `mirai` with customized parameters. the default parameters are shown below:
+
+```javascript
+var mirai = require("mirai/configure");
+
+mirai.configure({
+    // which extensions we should transpile for. by default, this is .js
+    // and .es6
+    extensions: [".js", ".es6"],
+
+    // the transpilation engine to use. currently, only traceur is
+    // supported.
+    engine: "traceur",
+
+    // options to pass to the transpiler. for traceur options, see
+    // https://github.com/google/traceur-
+    // compiler/blob/master/src/options.js
+    engineOptions: { },
+
+    // determine if we should transpile this file or whether to pass it to
+    // the existing handler. by default, we do not transpile any files
+    // that contain `/node_modules/` in its file path
+    shouldCompile: function(path) {
+        return /\/node_modules\//.test(path);
+    } 
+});
+
+// canonical options reference can be found at https://github.com/astralfoxy/mirai/blob/master/src/options.js
+```
+
+## license
+
+mit licensed. use it however you want.

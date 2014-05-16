@@ -1,27 +1,27 @@
 {
-    "name": "es6inode",
+    "name": "mirai",
     "author": "astralfoxy",
-    "description": "ES6 pseudo-polyfill for node",
+    "description": "mirai: use future versions of javascript today",
     "keywords": ["codegen", "compiler", "ecmascript", "ES.next", "es6", "harmony", "javascript", "traceur", "transpiler"],
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "MIT",
 
     
-    "main": "./src/es6inode.js",
+    "main": "./index.js",
     "engines": {
         "node": ">=0.10"
     },
 
 
     "dependencies": {
-        "traceur": "0.0.33"
+        "mirai-traceur": "0.0.41"
     },
 
     
-    "homepage": "https://github.com/astralfoxy/es6inode",
-    "bugs": "https://github.com/astralfoxy/es6inode/issues",
+    "homepage": "https://github.com/astralfoxy/mirai",
+    "bugs": "https://github.com/astralfoxy/mirai/issues",
     "repository": {
         "type": "git",
-        "url": "https://github.com/astralfoxy/es6inode"
+        "url": "https://github.com/astralfoxy/mirai"
     }
 }
