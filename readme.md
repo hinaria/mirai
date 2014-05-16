@@ -27,7 +27,7 @@ import { announce, read } from "./actions";
 
 announce("mirai is a success!");
 announce("greetings!", "foxy");
-read("greetings.txt")
+read("greetings.txt");
 ```
 
 ```javascript
@@ -40,7 +40,10 @@ export var announce = function(text, author = "system") {
     console.log(message);
 }
 
-export var read = path => fs.readFileSync(path, "utf8");
+export var read = function(path) {
+    let text = fs.readFileSync(path, "utf8");
+    console.log(text);
+}
 ```
 
 ```shell
