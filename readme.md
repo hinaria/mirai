@@ -16,6 +16,7 @@ activating `mirai` is as simple as requiring the module. `mirai` will then alter
 
 ```javascript
 /* program.js */
+
 require("mirai");
 require("./program");
 ```
