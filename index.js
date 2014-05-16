@@ -1,2 +1,1 @@
-var es = require("./configure");
-return es.configure();
+module.exports = require("./configure").configure();

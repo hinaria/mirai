@@ -8,10 +8,6 @@ run the future of javascript today. write and use ES6 and ES7 code within node.
 
 ```shell
 npm install mirai
-
-...
-
-require("mirai");
 ```
 
 activating `mirai` is as simple as requiring the module. `mirai` will then alter the module loading system to transpile new `.js` and `.es6` files.
@@ -20,25 +16,38 @@ activating `mirai` is as simple as requiring the module. `mirai` will then alter
 
 ```javascript
 /* program.js */
-
 require("mirai");
-
-var announce = require("./announce");
-announce("mirai is a success!");
+require("./program");
 ```
 
 ```javascript
-/* announce.es6 */
+/* program.es6 */
 
-export default function announce(text, author = "system") {
+import { announce, read } from "./actions";
+
+announce("mirai is a success!");
+announce("greetings!", "foxy");
+read("greetings.txt")
+```
+
+```javascript
+/* actions.es6 */
+
+import fs from "fs";
+
+export var announce = function(text, author = "system") {
     let message = `[announcement] ${text} -- ${author}`;
     console.log(message);
-};
+}
+
+export var read = path => fs.readFileSync(path, "utf8");
 ```
 
 ```shell
 node program.js
 => [announcement] mirai is a success! -- system
+=> [announcement] greetings! -- foxy
+=> greetings, commoner.
 ```
 
 ## configuration
@@ -72,6 +81,40 @@ mirai.configure({
 });
 
 // the default options are displayed above. the full reference can be found at https://github.com/astralfoxy/mirai/blob/master/src/options.js
+```
+
+## require() importing
+
+you can also access an es6 module's exports from es5 code with `require` - named exports by their name, the default export by "default".
+
+```javascript
+/* program.js */
+
+var foxy = require("./foxy");
+
+foxy
+// => [object]
+
+foxy.default
+// => function
+
+foxy.version
+// => "infinity"
+
+foxy.boolean
+// => true
+```
+
+```javascript
+/* foxy.es6 */
+
+export default function awesome() {
+    return "definitely awesome";
+}
+
+export var boolean = true;
+
+export var version = "infinity";
 ```
 
 ## license
