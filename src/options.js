@@ -11,8 +11,7 @@ module.exports = {
         engine: "traceur",
 
         // options to pass to the transpiler. for traceur options, see
-        // https://github.com/google/traceur-
-        // compiler/blob/master/src/options.js
+        // https://github.com/google/traceur-compiler/blob/master/src/options.js
         engineOptions: { },
 
         // determine if we should transpile this file or whether to pass it to
