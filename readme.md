@@ -43,7 +43,9 @@ node program.js
 
 ## configuration
 
-simply requiring `mirai` will activate it with the default parameters found in `options.js`. however, you can manually activate `mirai` with customized parameters. the default parameters are shown below:
+simply requiring `mirai` will activate it with the default parameters found in `options.js`. however, you can manually activate `mirai` with customized parameters.
+
+instead of calling `require("mirai")` which automatically activates `mirai`, we can require a version that can be configured before activation:
 
 ```javascript
 var mirai = require("mirai/configure");
@@ -69,7 +71,7 @@ mirai.configure({
     } 
 });
 
-// canonical options reference can be found at https://github.com/astralfoxy/mirai/blob/master/src/options.js
+// the default options are displayed above. the full reference can be found at https://github.com/astralfoxy/mirai/blob/master/src/options.js
 ```
 
 ## license
