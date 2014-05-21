@@ -10,9 +10,10 @@ var fluffy = module.exports = {
     },
 
     mergeInto: function(destination /*, ... args */) {
-        destination = destination || { };
+        if (!destination)
+            return destination;
 
-        for (var i = 0; i < arguments.length; i++) {
+        for (var i = 1; i < arguments.length; i++) {
             var source = arguments[i];
 
             for (var key in source) {
