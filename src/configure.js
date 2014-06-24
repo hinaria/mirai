@@ -7,7 +7,7 @@ var fluffy = require("./util/fluffy");
 var global = GLOBAL;
 
 var compile = function(params, mod, filename) {
-    if (params.unpatched && params.shouldCompile(filename)) {
+    if (params.unpatched && !params.shouldCompile(filename)) {
         return params.unpatched(mod, filename);
     } else {
         var es6 = fluffy.read(filename);
