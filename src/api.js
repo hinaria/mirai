@@ -1,21 +1,26 @@
 var pkg = require("../package.json");
+var fluffy = require("./util/fluffy");
+
+var caches = {
+    "import": { },
+    "module": { }
+};
 
 module.exports = {
     version: pkg.version,
-    modularize: function(type, name, value) {
-        if (!value)
-            return value;
+    require: function(type, name, path) {
+        if (type != "module" && type != "import")
+            throw "mirai: unknown module type '" + type + "' in module '" + name + "'";
 
-        switch (type) {
-            case "module":
-                return value;
-            case "import":
-                return typeof value == "object" && value.__mirai__
-                    ? value
-                    : { "default": value, "__mirai__": { type: "compatibility" } };
-            default:
-                throw "mirai: unknown module type '" + type + "' in module '" + name + "'";
-        }
+        var value = require(path);
+        var cache = caches[type];
+
+        if (!value) return value;
+        if (fluffy.has(cache, path)) return cache[path];
+
+        return cache[path] = type == "module"
+            ? value
+            : (typeof value == "object" && value.__mirai__ ? value : { "default": value, "__mirai__": { type: "compatibility" } });  
     },
     get: function(object, exportName) {
         if (object && typeof object == "object") {

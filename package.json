@@ -3,7 +3,7 @@
     "author": "astralfoxy",
     "description": "mirai: use future versions of javascript today",
     "keywords": ["codegen", "compiler", "ecmascript", "ES.next", "es6", "harmony", "javascript", "traceur", "transpiler"],
-    "version": "0.0.7",
+    "version": "0.0.8",
     "license": "MIT",
 
     
@@ -14,7 +14,7 @@
 
 
     "dependencies": {
-        "mirai-traceur": "0.0.41"
+        "mirai-traceur": "0.0.43"
     },
 
     

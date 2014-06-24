@@ -15,7 +15,7 @@ activating `mirai` is as simple as requiring the module. `mirai` will then alter
 ## example
 
 ```javascript
-/* program.js */
+/* bootstrap.js */
 
 require("mirai");
 require("./program");
@@ -48,7 +48,7 @@ export var read = function(path) {
 ```
 
 ```shell
-node program.js
+node bootstrap.js
 => [announcement] mirai is a success! -- system
 => [announcement] greetings! -- foxy
 => greetings, commoner.
