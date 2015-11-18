@@ -4,6 +4,9 @@ run the future of javascript today. write and use ES6 and ES7 code within node.
 
 `mirai` was previously called `es6inode`.
 
+## deprecation notice
+mirai is deprecated. instead, use [babel's require hook](https://babeljs.io/docs/usage/require/), which is functionally equivalent to requiring mirai, and supports the latest javascript features.
+
 ## getting started
 
 ```shell
